@@ -35,7 +35,7 @@ module.exports = {
   },
 
   production: {
-    client: 'pq',
+    client: 'pg',
     connection: process.env.DB_URL,
     ssl: true,
     pool: {
