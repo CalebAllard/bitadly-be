@@ -12,12 +12,12 @@ function add(url){
     
     return db('urls').insert(url)
     .then(ret => {
-        return findBy(ret[0]);
+        return findBy(ret);
     });     
 }
 
 function find() {
-   return db(urls);
+   return db('urls');
 }
 
 function findBy(filter) {
