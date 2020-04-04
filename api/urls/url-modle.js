@@ -12,6 +12,7 @@ function add(url){
     
     return db('urls').insert(url)
     .then(ret => {
+        console.log(ret);
         return findBy(ret[0]);
     })
     .catch(err => {
