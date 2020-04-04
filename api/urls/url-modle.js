@@ -10,7 +10,7 @@ module.exports = {
 
 function add(url){
     
-    return db('urls').insert(url)
+    return db('urls').insert(url).returning('id')
     .then(ret => {
         console.log(ret);
         return findBy(ret[0]);
