@@ -12,7 +12,11 @@ function add(url){
     
     return db('urls').insert(url)
     .then(ret => {
-        return findBy(ret);
+        return findBy(ret[0]);
+    })
+    .catch(err => {
+        console.log(err)
+        
     });     
 }
 
@@ -21,10 +25,11 @@ function find() {
 }
 
 function findBy(filter) {
-       
+       console.log(filter);
     return db("urls")
         .select("id", "short_url","target_url", "user_id")
-        .where('id', filter)
+        .where("id", filter)
+
         .first();
 }
 
